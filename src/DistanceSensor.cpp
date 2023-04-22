@@ -31,7 +31,7 @@ double DistanceSensor::getCM(float temp) {
     //The sensor now resets the distance by keeping echoPin HIGH for a period corresponding to the distance measured.
     unsigned long durationMicroSec = pulseIn(echoPin, HIGH);
 
-    double speedOfSoundInCmPerMs = 0.03313 + 0.0000606 * temperature; // Cair ≈ (331.3 + 0.606 ⋅ ϑ) m/s
+    double speedOfSoundInCmPerMs = 0.03313 + 0.0000606 * temp; // Approx ≈ (331.3 + 0.606 ⋅ ϑ) m/s
     double distanceCm = durationMicroSec / 2.0 * speedOfSoundInCmPerMs;
     if (distanceCm == 0 || distanceCm > 400) {
         return -1.0 ;
