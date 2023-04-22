@@ -1,5 +1,5 @@
 /*
-  HCSR04 - Arduino library for the HCSR04 ultrasonic distance sensor
+  DistanceSensor - HC-SR04 distance sensor library.
   Modified by Segilmez06, 22 April 2023.
   Made by Jørgen Larsen, 30 October 2019.
   Inspired by Martin Sosic, June 11, 2016.
