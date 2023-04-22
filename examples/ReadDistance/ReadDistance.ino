@@ -1,11 +1,13 @@
 /*
     This example reads the distance from a HC-SR04 sensor and
     prints it to the serial port.
+
+    by Segilmez06, 22 April 2023.
 */
 
 #include <DistanceSensor.h>
 
-
+// Define pins
 const int echoPin = 12;
 const int trigPin = 13;
 

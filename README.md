@@ -1,21 +1,40 @@
 # DistanceSensor
 
-![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/Segilmez06/DistanceSensor/check-lint.yml?branch=development&color=blue&label=Lint%20Check&logo=Github&logoColor=white&style=flat-square)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Segilmez06/DistanceSensor?display_name=tag&label=Latest%20Release&color=blue&logo=Github&logoColor=white&style=flat-square)
+![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/Segilmez06/DistanceSensor/check-lint.yml?branch=development&color=blue&label=Lint%20Check&logo=Github&logoColor=white&style=flat)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Segilmez06/DistanceSensor?display_name=tag&label=Latest%20Release&color=blue&logo=Github&logoColor=white&style=flat)
+[![arduino-library-badge](https://www.ardu-badge.com/badge/DistanceSensor.svg?)](https://www.ardu-badge.com/DistanceSensor)
 
 A simple library for the HC-SR04 ultrasonic distance sensor. It measures the time between the sensor's trigger and echo pins. The library is designed to be used with the Arduino IDE. Compitable with most Arduino and ESP boards.
 
 ## Installation
 
-Download the library and place it in your Arduino libraries folder. You can find the location of your libraries folder by going to `File > Preferences` in the Arduino IDE.
+### With Arduino Library Manager
+
+1. Open the Arduino IDE
+2. Go to `Sketch > Include Library > Manage Libraries...`
+3. Search for `DistanceSensor`
+4. Click on the library and click `Install`
+
+### With Zip file
+
+1. Download the library from the [Releases page](https://github.com/Segilmez06/DistanceSensor/releases).
+2. Open the Arduino IDE
+3. Go to `Sketch > Include Library > Add .ZIP Library...`
+4. Select the downloaded file
+
+### Manual Installation
+
+1. Download the library from the [Releases page](https://github.com/Segilmez06/DistanceSensor/releases).
+2. Unzip the file
+3. Go to `Documents/Arduino/libraries`
+4. Copy contents of the zip file to `Documents/Arduino/libraries`
 
 ## Usage
 
 ```c++
-
 #include <DistanceSensor.h>
 
-
+// Define pins
 const int echoPin = 12;
 const int trigPin = 13;
 
@@ -39,7 +58,6 @@ void loop () {
     // Wait a bit
     delay(500);
 }
-
 ```
 
 ## Credits
