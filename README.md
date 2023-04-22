@@ -1,5 +1,7 @@
 # DistanceSensor
 
+[![Check linting](https://github.com/Segilmez06/DistanceSensor/actions/workflows/check-lint.yml/badge.svg)](https://github.com/Segilmez06/DistanceSensor/actions/workflows/check-lint.yml)
+
 A simple library for the HC-SR04 ultrasonic distance sensor. It measures the time between the sensor's trigger and echo pins. The library is designed to be used with the Arduino IDE. Compitable with most Arduino and ESP boards.
 
 ## Installation
@@ -43,4 +45,4 @@ void loop () {
 
 Original library from [Afstandssensor](https://github.com/Teknologiskolen/HCSR04) authors.
 
-I (Segilmez06) just translated it to English and added some examples.
+I just translated it to English and added some examples.
