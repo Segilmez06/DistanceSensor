@@ -1,5 +1,5 @@
 /*
-  HCSR04 - Arduino library for the HCSR04 ultrasonic distance sensor
+  DistanceSensor - HC-SR04 distance sensor library.
   Modified by Segilmez06, 22 April 2023.
   Made by Jørgen Larsen, 30 October 2019.
   Inspired by Martin Sosic, June 11, 2016.
@@ -13,21 +13,22 @@
 class DistanceSensor {
  public:
     /**
-     * @param trigPin  Digital pin for controlling the sensor (output).
-     * @param echoPin  Digital pin for receiving data from the sensor (input).
+     * DistanceSensor constructor
+     * @param trigPin Pin for triggering the ultrasonic signal (output).
+     * @param echoPin Pin for receiving the ultrasonic signal (input).
      */
     DistanceSensor(int trigPin, int echoPin);
 
     /**
-     * Measures the distance
-     * @returns The distance in cm. For distances longer than 400cm, a negative value is returned.
+     * Measures the distance. Uses a standard temperature of 19.307 degrees Celsius (approximately 343m/s for sound).
+     * @returns The distance to do object in cm. If distane is out of range, 400 is returned.
      */
     double getCM();
 
     /**
-     * Measures the distance
-     * @returns The distance in cm. For distances longer than 400cm, a negative value is returned.
-     * @param temp  Temperature in degrees Celsius
+     * Measures the distance. Uses passed temperature.
+     * @returns The distance to do object in cm. If distane is out of range, 400 is returned.
+     * @param temperature Temperature as Celsius.
      */
     double getCM(float temp);
  private:

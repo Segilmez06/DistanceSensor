@@ -1,4 +1,4 @@
-name: Check linting
+name: Check code linting
 
 on:
     push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-    check-link:
+    check-linting:
         name: Check linting
 
         runs-on: windows-latest
