@@ -1,0 +1,66 @@
+name: Check on development branch
+
+on:
+    push:
+        branches: [ "development" ]
+
+jobs:
+
+    check-linting:
+        name: Check linting
+
+        runs-on: windows-latest
+
+        steps:
+        
+        - name: Checkout
+          uses: actions/checkout@v3
+        
+        - name: Check Linting
+          uses: arduino/arduino-lint-action@v1.0.2
+          with:
+            library-manager: update
+
+    check-examples:
+        name: Build example sketches
+
+        runs-on: windows-latest
+
+        steps:
+        
+        - name: Checkout
+          uses: actions/checkout@v3
+        
+        - name: Setup Arduino CLI
+          uses: arduino/setup-arduino-cli@v1
+
+        - name: Install platform
+          run: |
+            arduino-cli core update-index
+            arduino-cli core install arduino:avr
+
+        - name: Copy library
+          shell: pwsh
+          run: |
+            New-Item -ItemType Directory -Force -Path ~/Documents/Arduino/libraries
+            Copy-Item -Recurse -Force -Path . ~/Documents/Arduino/libraries/DistanceSensor
+  
+        - name: Compile Sketch 1
+          run: arduino-cli compile --fqbn arduino:avr:uno examples/DistanceSensor/DistanceSensor.ino
+
+        - name: Build all example sketches
+          uses: Legion2/arduino-builder-action@v2.0.0
+          with:
+            board: "arduino:avr:uno"
+
+        - name: List files
+          shell: pwsh
+          run: |
+            Get-ChildItem -Recurse -Path ~/Documents/
+            Get-ChildItem -Recurse -Path ~/Documents/Arduino/
+            Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/
+            Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/
+            Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/
+            Get-ChildItem -Recurse -Path .
+            Write-Host $pwd
+  
