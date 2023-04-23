@@ -49,11 +49,11 @@ jobs:
         - name: Compile Sketch 1
           run: arduino-cli compile --fqbn arduino:avr:uno --output-dir ./out examples/ReadDistance/ReadDistance.ino
 
-        - name: List files
-          shell: pwsh
-          run: |
-              Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/
-              Get-ChildItem -Recurse -Path ./out
+        # - name: List files
+        #   shell: pwsh
+        #   run: |
+        #       Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/
+        #       Get-ChildItem -Recurse -Path ./out
 
         - uses: actions/upload-artifact@v3
           with:
