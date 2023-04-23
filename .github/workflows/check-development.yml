@@ -45,14 +45,6 @@ jobs:
             New-Item -ItemType Directory -Force -Path ~/Documents/Arduino/libraries
             Copy-Item -Recurse -Force -Path . ~/Documents/Arduino/libraries/DistanceSensor
   
-        - name: Compile Sketch 1
-          run: arduino-cli compile --fqbn arduino:avr:uno examples/DistanceSensor/DistanceSensor.ino
-
-        - name: Build all example sketches
-          uses: Legion2/arduino-builder-action@v2.0.0
-          with:
-            board: "arduino:avr:uno"
-
         - name: List files
           shell: pwsh
           run: |
@@ -63,4 +55,12 @@ jobs:
             Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/
             Get-ChildItem -Recurse -Path .
             Write-Host $pwd
+
+        - name: Compile Sketch 1
+          run: arduino-cli compile --fqbn arduino:avr:uno examples/DistanceSensor/DistanceSensor.ino
+
+        - name: Build all example sketches
+          uses: Legion2/arduino-builder-action@v2.0.0
+          with:
+            board: "arduino:avr:uno"
   
