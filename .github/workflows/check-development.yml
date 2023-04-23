@@ -44,23 +44,22 @@ jobs:
           run: |
             New-Item -ItemType Directory -Force -Path ~/Documents/Arduino/libraries
             Copy-Item -Recurse -Force -Path . ~/Documents/Arduino/libraries/DistanceSensor
-  
-        - name: List files
-          shell: pwsh
-          run: |
-            Get-ChildItem -Recurse -Path ~/Documents/
-            Get-ChildItem -Recurse -Path ~/Documents/Arduino/
-            Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/
-            Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/
-            Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/
-            Get-ChildItem -Recurse -Path .
-            Write-Host $pwd
 
         - name: Compile Sketch 1
-          run: arduino-cli compile --fqbn arduino:avr:uno examples/DistanceSensor/DistanceSensor.ino
+          run: arduino-cli compile --fqbn arduino:avr:uno examples/ReadDistance/ReadDistance.ino
 
         - name: Build all example sketches
           uses: Legion2/arduino-builder-action@v2.0.0
           with:
             board: "arduino:avr:uno"
+
+        - name: List files
+          shell: pwsh
+          run: |
+            #   Get-ChildItem -Recurse -Path ~/Documents/Arduino/
+            #   Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/
+            #   Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/
+              Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/ReadTemp/
+            #   Get-ChildItem -Recurse -Path .
+            #   Write-Host $pwd
   
