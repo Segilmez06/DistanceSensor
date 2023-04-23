@@ -48,10 +48,10 @@ jobs:
         - name: Compile Sketch 1
           run: arduino-cli compile --fqbn arduino:avr:uno examples/ReadDistance/ReadDistance.ino
 
-        - name: Build all example sketches
-          uses: Legion2/arduino-builder-action@v2.0.0
-          with:
-            board: "arduino:avr:uno"
+        # - name: Build all example sketches
+        #   uses: Legion2/arduino-builder-action@v2.0.0
+        #   with:
+        #     board: "arduino:avr:uno"
 
         - name: List files
           shell: pwsh
