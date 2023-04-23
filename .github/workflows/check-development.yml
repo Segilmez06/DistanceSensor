@@ -56,10 +56,4 @@ jobs:
         - name: List files
           shell: pwsh
           run: |
-            #   Get-ChildItem -Recurse -Path ~/Documents/Arduino/
-            #   Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/
-            #   Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/
-              Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/ReadTemp/
-            #   Get-ChildItem -Recurse -Path .
-            #   Write-Host $pwd
-  
+              Get-ChildItem -Recurse -Path ~/Documents/Arduino/libraries/DistanceSensor/examples/
